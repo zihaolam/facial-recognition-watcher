@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+opencv-python = "*"
+numpy = "*"
+requests = "*"
+python-dotenv = "*"
+cmake = "*"
+dlib = "*"
+inquirer = "*"
+
+[dev-packages]
+autopep8 = "*"
+pyinstaller = "*"
+
+[requires]
+python_version = "3.9"

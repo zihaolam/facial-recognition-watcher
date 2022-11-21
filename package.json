@@ -1,0 +1,11 @@
+{
+  "name": "my-attendance-watcher",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "export STAGE=dev && pipenv run python start.py",
+    "start": "export STAGE=prod && pipenv run python start.py",
+    "build": "export STAGE=prod && pipenv run pyinstaller start.py"
+  },
+  "main": "index.js",
+  "license": "MIT"
+}
