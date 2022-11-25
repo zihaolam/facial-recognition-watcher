@@ -15,6 +15,7 @@ inquirer = "*"
 [dev-packages]
 autopep8 = "*"
 pyinstaller = "*"
+faker = "*"
 
 [requires]
 python_version = "3.9"

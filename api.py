@@ -2,6 +2,7 @@ from typing import Tuple, Union
 import requests
 import constants
 from requests.exceptions import HTTPError
+from helpers import Spinner
 
 # date_to_select: date = date.today().strftime("%Y-%m-%d")
 
@@ -11,10 +12,19 @@ def parse_user_pk(user_pk: str):
 
 
 def get_events():
-    response = requests.get(
-        f"{constants.ENDPOINT_URL}/event")
+    try:
+        response = requests.get(
+            f"{constants.ENDPOINT_URL}/event")
+        response.raise_for_status()
+    except HTTPError as e:
+        print(e)
+        return None
     events = response.json()["body"]
-    return events
+
+    if isinstance(events, list):
+        return events
+
+    return None
 
 
 def post_attendance(base64_img: str, event_id: str) -> Tuple[dict, bool]:
