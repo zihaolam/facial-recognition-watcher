@@ -2,6 +2,7 @@ import asyncio
 import sys
 import threading
 import time
+from typing import Tuple
 
 # Decorator implementation of async runner !!
 
@@ -58,9 +59,10 @@ def run_async(callback, loop=None):
     return inner
 
 
-def get_largest_face(faces):
+def get_largest_face(faces) -> Tuple[float, Tuple[float, float, float, float]]:
     size = 0
     coordinates = faces[0] if len(faces) else [0, 0, 0, 0]
+
     for face in faces:
         w = face.width()
         h = face.height()
